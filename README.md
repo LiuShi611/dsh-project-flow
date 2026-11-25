@@ -136,13 +136,15 @@ dsh plugin --profile <你的 profile> add github:LiuShi611/dsh-project-flow
 
 ## 许可
 
-非商业许可，见 [LICENSE](LICENSE)。
+[PolyForm Small Business License 1.0.0](https://polyformproject.org/licenses/small-business/1.0.0)，全文见 [LICENSE](LICENSE)。
 
-**仅限个人学习、研究与非营利项目使用。严禁任何商业用途，严禁任何非法用途。** 商业授权须事先取得作者书面许可。
+**小公司和个人直接用，不用找我。** 员工加外包合计少于 100 人、上一财年收入低于 100 万美元（按 CPI 调整）的公司，包括商业用途在内，都算允许用途——拿去接单、交付客户项目都行。
 
-本软件按「现状」提供，不附带任何保证。使用者使用本软件所产生的一切后果自行承担；用于非法用途或未经授权的商业用途的，一切法律责任由使用者自负，作者不承担任何责任。
+**超过这个规模要一份商业授权。** 按年签，含授权书、邮件支持和内部部署权。价位和流程写在 [docs/COMMERCIAL.md](docs/COMMERCIAL.md)。
 
-Copyright © 2026 刘适
+本软件按「现状」提供，不附带任何保证。使用后果由使用者自行承担。
+
+Required Notice: Copyright © 2026 刘适
 
 ---
 

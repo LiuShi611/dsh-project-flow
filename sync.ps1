@@ -24,7 +24,7 @@ if (-not (Test-Path $target)) {
 Write-Host "源：  $Source"
 Write-Host "目标：$target"
 
-foreach ($file in @('index.js', 'package.json', 'cordis.patch.yml', 'icon.svg', 'LICENSE')) {
+foreach ($file in @('index.js', 'package.json', 'cordis.patch.yml', 'icon.svg', 'LICENSE', 'README.md')) {
   $from = Join-Path $Source $file
   if (Test-Path $from) { Copy-Item $from (Join-Path $target $file) -Force }
 }

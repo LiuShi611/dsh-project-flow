@@ -225,8 +225,8 @@ snap.git/             项目自己的快照仓库
 
 ---
 
-Copyright © 2026 刘适 ｜ 非商业许可
+Copyright © 2026 刘适 ｜ PolyForm Small Business License 1.0.0
 
-**仅限个人学习、研究与非营利项目使用。严禁商业用途与非法用途。** 完整条款见 [LICENSE](../LICENSE)。
+小公司（100 人以下且上一财年收入低于 100 万美元）和个人直接用，商业用途也含在内。超过这个规模看 [COMMERCIAL.md](COMMERCIAL.md)。完整条款见 [LICENSE](../LICENSE)。
 
 机制细节见 [DETAIL.md](DETAIL.md)，完整功能清单见 [README.md](../README.md)。

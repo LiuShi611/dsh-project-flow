@@ -6,18 +6,18 @@
 
 ## 一、收录条目
 
-文件路径：`data/plugins/<你的GitHub名>__dsh-project-flow.yml`
+文件路径：`data/plugins/LiuShi611__dsh-project-flow.yml`
 
-把 `<你的GitHub名>` 换成实际的，文件名和 `url` 里的仓库地址必须完全一致。
+文件名和 `url` 里的仓库地址必须完全一致。
 
 ```yaml
-url: https://github.com/<你的GitHub名>/dsh-project-flow
-name: <你的GitHub名>/dsh-project-flow
+url: https://github.com/LiuShi611/dsh-project-flow
+name: LiuShi611/dsh-project-flow
 category: workflow
 description:
   en: "Five-stage workflow that turns one long task into intent, plan, build, self-check and a report against the original requirements, with the middle three stages in isolated child agents; every stage retries on its own and carries a deadline, an interrupted run resumes from the artifacts on disk, and each build attempt gets a snapshot before and after so a bad result can be rolled back wholesale or per file."
   zh: "把一个大任务拆成问意图、规划、实施、自检、按原始要求验收五段，中间三段各开独立子会话、只传任务书；单段异常自动重试并带截止时间，进程中断后按磁盘产物续跑，每次实施前后各打一张快照，跑废了可整棵回滚或只还原那一轮动过的文件。"
-icon: https://raw.githubusercontent.com/<你的GitHub名>/dsh-project-flow/main/assets/icon-180.png
+icon: https://raw.githubusercontent.com/LiuShi611/dsh-project-flow/main/assets/icon-180.png
 ```
 
 分类选 `workflow`（工作流与自动化）。
@@ -46,7 +46,7 @@ icon: https://raw.githubusercontent.com/<你的GitHub名>/dsh-project-flow/main/
 
 **1. 定 GitHub 账号名**
 
-条目文件名、`url`、`icon`、package.json 的 `repository` / `homepage` / `bugs`、README 的安装命令，全都要填这个。现在这些位置都是 `LiuShi611` 占位。
+已经全部按 `LiuShi611` 填好了：条目文件名、`url`、`icon`、package.json 的 `repository` / `homepage` / `bugs`、README 的安装命令。如果这个账号名不对，整包搜一遍替换，漏一处链接就断。
 
 **2. 建仓库并推代码**
 
@@ -54,20 +54,21 @@ icon: https://raw.githubusercontent.com/<你的GitHub名>/dsh-project-flow/main/
 
 **3. 改 package.json**
 
-三处要动：
+两处要确认：
 
 - `"private"` 已经改成 `false`。
-- 把 `LiuShi611` 换成实际账号名（`repository` / `homepage` / `bugs` 四处）。
-- `license` 现在是 `"SEE LICENSE IN LICENSE"`，指向包根目录的非商业许可全文。**不要改回 MIT**——MIT 允许商业使用和再销售，和你要的限制冲突。
+- `license` 现在是 `"PolyForm-Small-Business-1.0.0"`，SPDX 标准标识，指向包根目录的许可全文。**不要改回 MIT**——MIT 允许无限规模的商业使用和再销售，和你要的门槛冲突。
 
 **3.5 许可与免责（已配好，说明一下为什么这样写）**
 
-- [LICENSE](<D:\dsh-plugins\dsh-project-flow\LICENSE>) 是自定义非商业许可，中英双语，中文为准。禁止商业用途（含企业内部部署）、禁止非法用途，附完整免责与终止条款。
-- `package.json` 的 `license` 字段用 `SEE LICENSE IN LICENSE`。npm 和 SPDX 都没有「禁止商用」的标准标识，硬写 `MIT` 或 `CC-BY-NC` 都表达不准，所以指向全文最稳。
+- [LICENSE](LICENSE) 是 PolyForm Small Business License 1.0.0 原文，没有改动一个字，只在文件头加了一行 `Required Notice: Copyright © 2026 刘适 (Liu Shi)` 和一句指向 `docs/COMMERCIAL.md` 的中文说明。原文不能改，这是这份许可的规矩。
+- `package.json` 的 `license` 字段是 SPDX 标识 `PolyForm-Small-Business-1.0.0`。GitHub、npm、各种 SCA 工具都认得，公司采购看到这个标识不用请律师重审。
+- 门槛是这份许可自带的：员工加外包合计少于 100 人、上一财年收入低于 100 万美元（按 CPI 调整）的公司，商业用途也算允许。超过这个规模才需要商业授权。
+- 商业授权的价位、流程、联系方式在 [COMMERCIAL.md](COMMERCIAL.md)。这份文档的作用是让过门槛的公司知道「去哪、多少钱、多久回」，不然条款写了等于没写。
 - 运行时也会显示：`project_models` 和 `/flow-models` 各多一行许可提示，系统提示词段落末尾也带上。用户跑 `/flow-models` 就会看到，不会只在 LICENSE 里躺着。
 - 代码文件头、README、docs 三处都加了警示。
 
-**注意**：市场列表的收录规则没有限制许可类型，非商业许可不影响收录。但如果条目描述里要提许可，据实写就好。
+**注意**：市场列表的收录规则没有限制许可类型，PolyForm 不影响收录。条目描述里要提许可就据实写。
 
 **4. 确认本地装的那份同步了**
 
@@ -127,15 +128,21 @@ icon: https://raw.githubusercontent.com/<你的GitHub名>/dsh-project-flow/main/
 
 ## 五、还需要你定的
 
-- GitHub 账号名（我填进去，把 `LiuShi611` 全部替换）
 - 要不要发 npm
 
-`"private": true` 已经改成 `false`，许可已经从 MIT 收紧为非商业，免责声明写进 LICENSE 全文并在运行时显示。
+GitHub 账号名已经按 `LiuShi611` 填好，`"private": true` 已经改成 `false`，许可是 PolyForm Small Business 1.0.0，免责与门槛都在 LICENSE 全文里并在运行时显示。
 
-## 六、许可收紧后要注意的一件事
+联系方式是 2479465655@qq.com，价位是小团队 2,000 / 中型 8,000 / 大型 20,000 起，都在 `docs/COMMERCIAL.md` 里。
 
-`package.json` 的 `license` 字段现在是 `"SEE LICENSE IN LICENSE"`。这符合 npm 规范，也是表达「非标准许可」的标准做法。
+## 六、许可定下来之后要注意的一件事
 
-但要清楚：**开源许可一旦以 MIT 发布过就收不回来了**。这个插件目前还没公开，所以现在收紧是有效的。如果以后真发了 npm，之后想再改回更宽松或更严格的许可，已经发布出去的那些版本仍然适用当时声明的许可。
+`package.json` 的 `license` 字段是 `"PolyForm-Small-Business-1.0.0"`，SPDX 标识，npm 与 GitHub 都认。
 
-另外，市场列表本身对许可没有要求，非商业许可不影响收录。只是如果有人想在商业场景用，你的条款挡得住，但实际执行要靠你自己追。
+许可一旦以某个版本发布出去，那个版本就永远适用当时声明的许可，改不回来。这个插件还没公开，现在是唯一的定许可窗口。**一旦推上去并发了 npm，之后想放宽或收紧，只能对新版本生效，老版本管不着。**
+
+所以推之前先想清楚两件事：
+
+1. 门槛要不要调整。PolyForm 的门槛（100 人 / 100 万美元）是写死在许可原文里的，改动就变成自写许可，SPDX 也认不出来了。想换门槛就换许可，别改原文。
+2. 商业授权那份文档里的价位是不是你真敢报的数。现在定的是各档下限（2,000 / 8,000 / 20,000），报出去就难改。第一次谈的时候按这个数来；如果第一个客户觉得便宜，下一版再调，已经签的那份不动。
+
+市场列表本身对许可没有要求，PolyForm 不影响收录。条款拦不住明文 JS，实际执行靠事后追，但给了 32 天整改期，比「一违就断」好谈得多。

@@ -15,9 +15,9 @@
  * Copyright © 2026 刘适 (Liu Shi). All rights reserved.
  * dsh-project-flow 由刘适开发与维护。
  *
- * 许可：仅限非商业用途。严禁任何商业用途与非法用途，违者责任自负。
- * 本软件按「现状」提供，作者不对使用后果承担任何责任。
- * 完整条款见包根目录 LICENSE。
+ * 许可：PolyForm Small Business License 1.0.0。小公司（100 人以下且上一财年收入低于
+ * 100 万美元）与个人的商业使用无需授权；超过规模需商业授权。完整条款见包根目录 LICENSE，
+ * 授权流程见 docs/COMMERCIAL.md。
  */
 import { mkdir, readFile, writeFile, readdir, appendFile, rename, rm } from 'node:fs/promises'
 import { readFileSync } from 'node:fs'
@@ -29,8 +29,8 @@ import z from '@deepseek-ai/schemastery'
 /** Shown by project_models, /flow-models, and every plugin surface that reports identity. */
 export const COPYRIGHT = '© 2026 刘适'
 
-/** One line every surface shows, so the restriction is never out of sight. */
-export const LICENSE_NOTICE = '仅限非商业用途使用；禁止任何商业用途与非法用途；按「现状」提供，作者不承担使用后果'
+/** One line every surface shows, so the licensing terms are never out of sight. */
+export const LICENSE_NOTICE = 'PolyForm Small Business 1.0.0；100 人以下且上一财年收入低于 100 万美元的公司与个人可直接商用，超过规模见 docs/COMMERCIAL.md'
 
 export const name = 'project-flow'
 export const inject = ['tools', 'subagents', 'systemPrompt', 'commands']
@@ -127,6 +127,34 @@ function cwdOf(ctx, agent) {
 
 function stateDir(cwd, project) {
   return join(cwd, '.project-flow', project)
+}
+
+/**
+ * Reject a project name that would escape `.project-flow`.
+ *
+ * The name becomes a directory component, and it arrives from a model or a
+ * slash command, so `../x`, an absolute path, a drive letter or a trailing dot
+ * would place artifacts outside the workspace the user asked about. Returning
+ * an explanation beats silently writing somewhere unexpected.
+ */
+function assertProjectName(project) {
+  if (typeof project !== 'string' || project.trim() === '') {
+    throw new Error('项目名不能为空。用一个小写加连字符的简称，比如 my-site。')
+  }
+  const name = project.trim()
+  if (name === '.' || name === '..') {
+    throw new Error(`项目名「${name}」不能是相对路径。换一个小写加连字符的简称。`)
+  }
+  if (name.includes('/') || name.includes('\\') || name.includes(':')) {
+    throw new Error(`项目名「${name}」里不能有斜杠或冒号，它只是一个目录名。换一个，比如 my-site。`)
+  }
+  if (/[\u0000-\u001f]/u.test(name)) {
+    throw new Error('项目名里不能有控制字符。换一个小写加连字符的简称。')
+  }
+  if (name !== project) {
+    throw new Error(`项目名「${project}」前后不能有空白。去掉空白再试。`)
+  }
+  return name
 }
 
 function nowIso() {
@@ -960,17 +988,65 @@ function statusLine(state) {
   return tail.length === 0 ? line : `${line}\n  └ ${tail.join('；')}`
 }
 
+/**
+ * Directories never worth reading to the planner: dependency trees, VCS
+ * metadata, virtualenvs and build output. Without this the listing walks a
+ * user's whole workspace including node_modules, which on a real project means
+ * tens of thousands of files and tens of GB before the planner even starts.
+ */
+const LIST_SKIP_DIRS = new Set([
+  '.project-flow', '.git', '.hg', '.svn',
+  'node_modules', '.pnpm', 'bower_components',
+  '.venv', 'venv', 'env', '__pycache__', '.mypy_cache', '.pytest_cache',
+  '.next', '.nuxt', '.svelte-kit', 'dist', 'build', 'out', 'target',
+  '.cache', '.gradle', '.idea', '.vscode', 'coverage',
+])
+
+/** How deep the listing descends, and how many entries it will ever collect. */
+const LIST_MAX_DEPTH = 4
+const LIST_MAX_ENTRIES = 4000
+
+/**
+ * A bounded, dependency-free directory listing for the planner prompt.
+ *
+ * `readdir(recursive)` cannot stop early and has no filter, so it is not used:
+ * this walks breadth-first with its own budget instead. A workspace with no
+ * such guard makes the first stage of every run take minutes.
+ */
 async function listFiles(dir, limit = 60) {
+  const found = []
+  let entries = 0
+  let queue = [{ path: '', depth: 0 }]
   try {
-    const entries = await readdir(dir, { recursive: true, withFileTypes: true })
-    return entries
-      .filter(entry => entry.isFile())
-      .map(entry => entry.name)
-      .filter(fileName => !fileName.includes('.project-flow'))
-      .slice(0, limit)
+    while (queue.length > 0 && found.length < limit * 6 && entries < LIST_MAX_ENTRIES) {
+      const next = []
+      for (const current of queue) {
+        if (entries >= LIST_MAX_ENTRIES) break
+        let dirents
+        try {
+          dirents = await readdir(current.path === '' ? dir : join(dir, current.path), { withFileTypes: true })
+        } catch {
+          continue
+        }
+        for (const dirent of dirents) {
+          entries += 1
+          if (entries > LIST_MAX_ENTRIES) break
+          const relative = current.path === '' ? dirent.name : `${current.path}/${dirent.name}`
+          if (dirent.isDirectory()) {
+            if (LIST_SKIP_DIRS.has(dirent.name)) continue
+            if (current.depth + 1 > LIST_MAX_DEPTH) continue
+            next.push({ path: relative, depth: current.depth + 1 })
+            continue
+          }
+          if (dirent.isFile()) found.push(relative)
+        }
+      }
+      queue = next
+    }
   } catch {
-    return []
+    return found.slice(0, limit)
   }
+  return found.slice(0, limit)
 }
 
 export function apply(ctx, config) {
@@ -1342,6 +1418,9 @@ export function apply(ctx, config) {
    */
   const executeRun = async options => {
     const { cwd, project, signal } = options
+    // Every tool that writes under `.project-flow/<project>` funnels through
+    // here, so one check covers them all.
+    assertProjectName(project)
     const settings = settingsOf()
     const claim = await acquireLock(cwd, project, settings)
     if (claim.ok !== true) {
@@ -1717,7 +1796,7 @@ export function apply(ctx, config) {
     },
     async execute(args, exec) {
       const cwd = args.cwd !== undefined && isAbsolute(args.cwd) ? args.cwd : cwdOf(ctx, exec.agent)
-      const project = args.project
+      const project = assertProjectName(args.project)
       const limit = typeof args.limit === 'number' && args.limit > 0 ? args.limit : 20
       if (await gitAvailable() !== true) {
         return { line: `项目 ${project}：这台机器上没有可用的 git，快照与回滚不可用。`, entries: [] }
@@ -1803,7 +1882,7 @@ export function apply(ctx, config) {
     },
     async execute(args, exec) {
       const cwd = args.cwd !== undefined && isAbsolute(args.cwd) ? args.cwd : cwdOf(ctx, exec.agent)
-      const project = args.project
+      const project = assertProjectName(args.project)
       const dryRun = args.dryRun !== false
       const mode = args.mode === 'precise' ? 'precise' : 'full'
       const fail = (line, details = '') => ({
@@ -1994,7 +2073,7 @@ export function apply(ctx, config) {
     async execute(args, exec) {
       const cwd = args.cwd !== undefined && isAbsolute(args.cwd) ? args.cwd : cwdOf(ctx, exec.agent)
       if (args.project !== undefined) {
-        const state = await readState(cwd, args.project)
+        const state = await readState(cwd, assertProjectName(args.project))
         return { line: statusLine(state), projects: [] }
       }
       const lines = await listProjectLines(cwd)
@@ -2338,6 +2417,6 @@ export function apply(ctx, config) {
 7. 每次实施前后会自动打快照。用户说「改废了」「回滚」「退回刚才的样子」时，先用 \`project_snapshots\` 列出目标，再用 \`project_rollback\` 干跑给 diff，用户确认后才 \`dryRun: false\` 真回滚。\`mode: "full"\` 整棵恢复、\`mode: "precise"\` 只还原那一轮动过的文件；说不清就用 full。
 
 子 agent 问不了用户，所以只有你能问；把答案压成要求清单再交给流程。
-（${COPYRIGHT} · dsh-project-flow · ${LICENSE_NOTICE}）`,
+（${COPYRIGHT} · dsh-project-flow · PolyForm Small Business 1.0.0，小公司和个人可直接商用）`,
   })
 }

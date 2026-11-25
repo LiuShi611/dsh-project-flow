@@ -9,7 +9,7 @@
     "name": "刘适",
     "url": "https://github.com/LiuShi611"
   },
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "PolyForm-Small-Business-1.0.0",
   "copyright": "Copyright © 2026 刘适",
   "homepage": "https://github.com/LiuShi611/dsh-project-flow",
   "repository": {
@@ -43,6 +43,8 @@
     "locale/*.json",
     "docs",
     "icon.svg",
+    "assets",
+    "README.md",
     "LICENSE"
   ],
   "dsh": {
