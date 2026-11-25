@@ -101,7 +101,7 @@ snap.git/             项目自己的快照仓库
 ## 安装
 
 ```sh
-dsh plugin --profile <你的 profile> add github:<你的 GitHub 名>/dsh-project-flow
+dsh plugin --profile <你的 profile> add github:LiuShi611/dsh-project-flow
 ```
 
 需要 Node 20 及以上、DSH 0.2.0 及以上。

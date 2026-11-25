@@ -4,7 +4,7 @@ dsh-project-flow ｜ 刘适
 
 朋友圈不支持 Markdown，下面全是纯文本，可以直接复制。分三种长度，按你要发的内容挑一个。
 
-发之前把 `[仓库地址]` 换成实际的 GitHub 地址。
+发之前把 `https://github.com/LiuShi611/dsh-project-flow` 换成实际的 GitHub 地址。
 
 ---
 
@@ -91,7 +91,7 @@ dsh-project-flow 使用说明
 
 六、装
 
-dsh plugin --profile 你的profile名 add [仓库地址]
+dsh plugin --profile 你的profile名 add https://github.com/LiuShi611/dsh-project-flow
 
 需要 Node 20 以上，DSH 0.2.0 以上。
 
@@ -112,7 +112,7 @@ dsh plugin --profile 你的profile名 add [仓库地址]
 
 ## 五、发之前检查
 
-- `[仓库地址]` 换成实际的 GitHub 地址，全文只有正文那一处（说明文字里的三处不算）。
+- `https://github.com/LiuShi611/dsh-project-flow` 换成实际的 GitHub 地址，全文只有正文那一处（说明文字里的三处不算）。
 - 朋友圈是纯文本，别把 `#`、`**`、反引号带进去，会原样显示。
 - 折叠前只能看到六行左右，所以第一句必须能抓住人。上面两条都按这个写的，别在前面加寒暄。
 - 如果只想发短的那条，把仓库地址放在最后一行单独一行，方便别人复制。

@@ -7,17 +7,17 @@
   "main": "index.js",
   "author": {
     "name": "刘适",
-    "url": "https://github.com/[GITHUB_USERNAME]"
+    "url": "https://github.com/LiuShi611"
   },
   "license": "SEE LICENSE IN LICENSE",
   "copyright": "Copyright © 2026 刘适",
-  "homepage": "https://github.com/[GITHUB_USERNAME]/dsh-project-flow",
+  "homepage": "https://github.com/LiuShi611/dsh-project-flow",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/[GITHUB_USERNAME]/dsh-project-flow.git"
+    "url": "git+https://github.com/LiuShi611/dsh-project-flow.git"
   },
   "bugs": {
-    "url": "https://github.com/[GITHUB_USERNAME]/dsh-project-flow/issues"
+    "url": "https://github.com/LiuShi611/dsh-project-flow/issues"
   },
   "keywords": [
     "deepseek",

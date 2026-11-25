@@ -46,7 +46,7 @@ icon: https://raw.githubusercontent.com/<你的GitHub名>/dsh-project-flow/main/
 
 **1. 定 GitHub 账号名**
 
-条目文件名、`url`、`icon`、package.json 的 `repository` / `homepage` / `bugs`、README 的安装命令，全都要填这个。现在这些位置都是 `[GITHUB_USERNAME]` 占位。
+条目文件名、`url`、`icon`、package.json 的 `repository` / `homepage` / `bugs`、README 的安装命令，全都要填这个。现在这些位置都是 `LiuShi611` 占位。
 
 **2. 建仓库并推代码**
 
@@ -57,7 +57,7 @@ icon: https://raw.githubusercontent.com/<你的GitHub名>/dsh-project-flow/main/
 三处要动：
 
 - `"private"` 已经改成 `false`。
-- 把 `[GITHUB_USERNAME]` 换成实际账号名（`repository` / `homepage` / `bugs` 四处）。
+- 把 `LiuShi611` 换成实际账号名（`repository` / `homepage` / `bugs` 四处）。
 - `license` 现在是 `"SEE LICENSE IN LICENSE"`，指向包根目录的非商业许可全文。**不要改回 MIT**——MIT 允许商业使用和再销售，和你要的限制冲突。
 
 **3.5 许可与免责（已配好，说明一下为什么这样写）**
@@ -127,7 +127,7 @@ icon: https://raw.githubusercontent.com/<你的GitHub名>/dsh-project-flow/main/
 
 ## 五、还需要你定的
 
-- GitHub 账号名（我填进去，把 `[GITHUB_USERNAME]` 全部替换）
+- GitHub 账号名（我填进去，把 `LiuShi611` 全部替换）
 - 要不要发 npm
 
 `"private": true` 已经改成 `false`，许可已经从 MIT 收紧为非商业，免责声明写进 LICENSE 全文并在运行时显示。
