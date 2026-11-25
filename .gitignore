@@ -1,0 +1,40 @@
+# 备份与临时文件
+index.js.bak-*
+*.bak
+*.bak-*
+*.orig
+*.rej
+*.tmp
+*~
+
+# 依赖与构建产物
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+
+# 日志与系统垃圾
+*.log
+npm-debug.log*
+pnpm-debug.log*
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# 编辑器与 IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 插件运行时会在用户工作区生成的东西（本仓库里不该出现，防误提交）
+.project-flow/
+
+# 朋友圈卡片的导出图（PNG 体积大，可从同目录 HTML 重新导出，不入库）
+docs/moments-cards/output/
+docs/moments-cards/output-*/
+
+# 本地私有配置
+.env
+.env.local
+*.local.json

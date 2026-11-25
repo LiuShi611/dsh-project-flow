@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "title": "Project flow",
+    "description": "Five-stage gated delivery: confirm intent, plan, build, self-check, then report against the original requirements. Stages 2-4 run in isolated child agents and exchange tickets, so a long job no longer overruns one conversation. Self-healing (per-stage retries, stage deadlines, resume after a crash) and rollback (a snapshot before and after every build attempt, restored wholesale or limited to the files that attempt touched). By Liu Shi.",
+    "detail": "docs/DETAIL.md"
+  },
+  "tool": {
+    "run": "Run the gated pipeline for one project",
+    "resume": "Continue an interrupted project from where it stopped",
+    "doctor": "Check stale locks, broken state and dangling stages",
+    "snapshots": "List snapshots and the files each build attempt touched",
+    "rollback": "Roll the workspace back to a snapshot, wholesale or per file",
+    "status": "Read one project's current stage",
+    "models": "Read the per-stage models plus self-healing and snapshot limits"
+  },
+  "command": {
+    "flow": "Start work mode and run the task through the five stages",
+    "status": "Show the current project's stage",
+    "models": "Show the per-stage models",
+    "resume": "Continue an interrupted project",
+    "doctor": "Check the workspace, optionally repair it",
+    "snapshots": "List a project's rollback targets"
+  }
+}

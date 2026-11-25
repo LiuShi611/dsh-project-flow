@@ -1,0 +1,162 @@
+dsh-project-flow 非商业许可协议
+dsh-project-flow Non-Commercial License
+
+版权所有 © 2026 刘适 (Liu Shi)。保留所有权利。
+Copyright © 2026 Liu Shi. All rights reserved.
+
+========================================================================
+一、中文条款（以本中文版本为准）
+========================================================================
+
+【定义】
+
+「本软件」指 dsh-project-flow 插件及其全部源代码、文档、配置、图标与随附文件，包括任何修改版、衍生作品和部分副本。
+
+「作者」指刘适 (Liu Shi)，本软件的著作权人。
+
+【第 1 条 授权范围】
+
+在遵守本协议全部条款的前提下，作者授予你一项免费的、非独占的、不可转让的、可撤销的许可，允许你：
+
+（1）为个人学习、个人研究、个人非营利项目，在你自己控制的设备上安装、运行、复制本软件；
+（2）阅读、研究本软件源代码，并为上述非商业目的修改本软件；
+（3）在非商业用途范围内，将本软件及其修改版提供给他人使用，前提是完整保留本协议与全部版权声明，并将本协议一并交付给接收方。
+
+【第 2 条 商业用途禁止】
+
+2.1 严禁将本软件用于任何商业用途。「商业用途」包括但不限于：
+
+（1）在经营活动中使用本软件，包括企业内部生产、运营、交付客户项目；
+（2）将本软件或其功能作为商品、服务、订阅、增值功能对外销售、出租、许可或收费；
+（3）将本软件集成进任何商业产品或商业平台，或作为商业产品的一部分分发；
+（4）以本软件为基础提供有偿的技术支持、咨询、代运维、培训或托管服务；
+（5）以直接或间接获取经济利益为目的使用本软件，包括用于承接付费订单、投标、交付商业成果；
+（6）在商业机构内部部署使用，无论该机构是否直接对外收费。
+
+2.2 任何商业用途必须事先取得作者的书面授权。未取得书面授权的商业使用，均属违反本协议。
+
+【第 3 条 非法用途禁止】
+
+3.1 严禁将本软件用于任何违反中华人民共和国法律法规、或违反使用者所在地法律法规的用途。包括但不限于：
+
+（1）侵入、破坏他人计算机信息系统，或未经授权访问他人数据；
+（2）制作、传播恶意程序、病毒、木马、勒索软件、间谍软件；
+（3）实施电信网络诈骗、网络钓鱼、身份伪造、侵犯公民个人信息；
+（4）侵犯他人知识产权、商业秘密或其他合法权益；
+（5）制作、传播法律法规禁止的内容；
+（6）其他一切违法犯罪活动。
+
+3.2 使用者应自行确认其使用行为符合所在地法律法规及所接入平台的服务条款。
+
+【第 4 条 免责声明】
+
+4.1 本软件按「现状」提供，不附带任何明示或默示的保证，包括但不限于对适销性、特定用途适用性、无侵权、无错误、不中断运行的保证。
+
+4.2 作者不对本软件的功能完整性、准确性、可靠性、安全性作任何承诺。本软件可能包含缺陷，可能产生错误输出，可能造成数据丢失或文件被覆盖。
+
+4.3 **使用者使用本软件所产生的一切后果，由使用者自行承担。** 作者不对因使用或无法使用本软件而产生的任何直接、间接、附带、特殊、惩罚性或后果性损失承担责任，包括但不限于利润损失、数据丢失、业务中断、设备损坏、第三方索赔。
+
+4.4 **使用者将本软件用于任何非法用途或未经授权的商业用途的，由此产生的一切法律责任、行政处罚、民事赔偿及第三方索赔，全部由使用者自行承担，与作者无关。** 作者不承担任何连带责任、监督责任或替代责任。
+
+4.5 本软件的回滚与快照功能会读写使用者工作区的文件。使用者应在使用前自行备份重要数据，并自行确认回滚操作的影响范围。作者不对任何因快照、回滚、文件还原、文件删除操作造成的数据损失承担责任。
+
+4.6 本软件会在使用者本机执行 git 命令并创建快照仓库。使用者应自行确认其运行环境与权限配置适当。
+
+【第 5 条 协议终止】
+
+5.1 你违反本协议任何条款的，本协议授予你的全部权利立即自动终止，无需作者通知。
+
+5.2 协议终止后，你应立即停止使用本软件，并删除全部副本及其修改版。
+
+5.3 协议终止不影响作者就违约或侵权行为追究责任的权利。
+
+【第 6 条 其他】
+
+6.1 本协议未尽事宜，适用中华人民共和国法律。
+
+6.2 本协议任何条款被认定无效或不可执行的，不影响其余条款的效力。
+
+6.3 作者保留随时修改本协议的权利。修改后的协议自发布之日起生效，对之后的使用行为具有约束力。
+
+6.4 不得移除、遮蔽或修改本软件源码、界面文案、文档中的任何版权声明与协议声明。
+
+========================================================================
+二、English Terms (for reference; the Chinese text above prevails)
+========================================================================
+
+【Definitions】
+
+"The Software" means the dsh-project-flow plugin and all of its source code, documentation, configuration, artwork and accompanying files, including any modified version, derivative work or partial copy.
+
+"The Author" means Liu Shi, the copyright holder.
+
+【1. Grant】
+
+Subject to full compliance with this License, the Author grants you a free, non-exclusive, non-transferable, revocable license to:
+
+(1) install, run and copy the Software on devices you control, for personal study, personal research, or personal non-profit projects;
+(2) read and study the source code, and modify the Software for those non-commercial purposes;
+(3) provide the Software and your modifications to others within non-commercial use, provided this License and all copyright notices are retained in full and delivered to the recipient.
+
+【2. Prohibition of Commercial Use】
+
+2.1 Any commercial use of the Software is strictly prohibited. "Commercial use" includes, without limitation:
+
+(1) use in business operations, including internal production, operations, or delivery of client projects;
+(2) selling, renting, licensing or charging for the Software or its functionality as a product, service, subscription or paid feature;
+(3) integrating the Software into any commercial product or platform, or distributing it as part of one;
+(4) providing paid technical support, consulting, managed operations, training or hosting services based on the Software;
+(5) use for direct or indirect financial gain, including paid orders, bids, or commercial deliverables;
+(6) deployment inside a commercial organization, whether or not that organization charges its own customers.
+
+2.2 Any commercial use requires the Author's prior written permission. Commercial use without such permission violates this License.
+
+【3. Prohibition of Unlawful Use】
+
+3.1 The Software must not be used for any purpose that violates the laws of the People's Republic of China or the laws applicable where you use it. This includes, without limitation:
+
+(1) unauthorized access to, intrusion into, or damage of computer information systems or others' data;
+(2) creating or distributing malware, viruses, trojans, ransomware or spyware;
+(3) telecom and online fraud, phishing, identity forgery, or infringement of personal information;
+(4) infringement of intellectual property, trade secrets or other lawful rights of others;
+(5) creating or distributing content prohibited by law;
+(6) any other unlawful or criminal activity.
+
+3.2 You are solely responsible for confirming that your use complies with applicable law and with the terms of any platform you connect to.
+
+【4. Disclaimer of Warranty and Liability】
+
+4.1 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, ERROR-FREE OR UNINTERRUPTED OPERATION.
+
+4.2 The Author makes no commitment regarding the completeness, accuracy, reliability or security of the Software. The Software may contain defects, may produce incorrect output, and may cause data loss or overwrite files.
+
+4.3 **You bear sole responsibility for all consequences of using the Software.** The Author shall not be liable for any direct, indirect, incidental, special, punitive or consequential damages arising from the use of or inability to use the Software, including loss of profits, loss of data, business interruption, equipment damage or third-party claims.
+
+4.4 **If you use the Software for any unlawful purpose or for unauthorized commercial use, you alone bear all resulting legal liability, administrative penalties, civil compensation and third-party claims. The Author bears no joint, supervisory or vicarious liability whatsoever.**
+
+4.5 The Software's rollback and snapshot features read and write files in your workspace. You must back up important data before use and must confirm the scope of any rollback yourself. The Author is not liable for any data loss caused by snapshot, rollback, file restoration or file deletion operations.
+
+4.6 The Software runs git commands on your machine and creates a snapshot repository. You are responsible for confirming that your environment and permissions are appropriate.
+
+【5. Termination】
+
+5.1 If you breach any term of this License, all rights granted to you terminate automatically and immediately, without notice from the Author.
+
+5.2 Upon termination you must stop using the Software and delete all copies and modifications.
+
+5.3 Termination does not affect the Author's right to pursue remedies for breach or infringement.
+
+【6. Miscellaneous】
+
+6.1 Matters not covered by this License are governed by the laws of the People's Republic of China.
+
+6.2 If any provision is held invalid or unenforceable, the remaining provisions remain in effect.
+
+6.3 The Author may revise this License at any time. A revision takes effect when published and binds subsequent use.
+
+6.4 You must not remove, obscure or alter any copyright or license notice in the Software's source, interface text or documentation.
+
+========================================================================
+
+联系方式 / Contact：请通过项目仓库的 issue 或作者公开的联系方式取得书面授权。
+For written permission, contact the Author through the project repository or the Author's published contact channel.

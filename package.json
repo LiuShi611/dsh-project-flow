@@ -1,0 +1,53 @@
+{
+  "name": "dsh-project-flow",
+  "version": "0.3.0",
+  "private": false,
+  "description": "Five-stage project workflow: intent, plan, build, self-check, acceptance, with a rework loop, self-healing recovery, snapshot rollback and a single status light.",
+  "type": "module",
+  "main": "index.js",
+  "author": {
+    "name": "刘适",
+    "url": "https://github.com/[GITHUB_USERNAME]"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "copyright": "Copyright © 2026 刘适",
+  "homepage": "https://github.com/[GITHUB_USERNAME]/dsh-project-flow",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/[GITHUB_USERNAME]/dsh-project-flow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/[GITHUB_USERNAME]/dsh-project-flow/issues"
+  },
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "workflow",
+    "agent",
+    "five-stage"
+  ],
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.0"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "docs",
+    "icon.svg",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <div class="top">
+    <div class="brand-tag"><span class="dot"></span>DSH PLUGIN</div>
+    <div class="pageno">05 / 06</div>
+  </div>
+  <div class="body">
+    <div class="kicker">04 · 建议与限制</div>
+    <h2 class="title">模型分工 <span class="hl">建议</span></h2>
+    <div class="tbl-note">把资源花在刀刃上，五段不必都用最贵的模型。</div>
+
+    <table>
+      <tr><th>段</th><th>建议</th><th>理由</th></tr>
+      <tr><td>1 问意图</td><td>用聪明的</td><td>要问出真正的想法，省不得</td></tr>
+      <tr><td>2 规划</td><td>中等够用</td><td>出任务书，不需最强</td></tr>
+      <tr><td>3 实施</td><td>便宜量大</td><td>动手干活，消耗大</td></tr>
+      <tr><td>4 自检</td><td>便宜的</td><td>读大量文件逐条比对，最耗 token</td></tr>
+      <tr><td>5 验收</td><td>主对话模型</td><td>对照要求逐条核</td></tr>
+    </table>
+
+    <div class="tip">别拿最贵的模型跑自检——它是四段里最耗 token 的一段，做的是核对，不是创造。</div>
+
+    <div class="limit-hd">要知道的限制</div>
+    <div class="limits">
+      <div class="limit"><b>自愈只管「没跑完」</b>，管不了「跑完但做错了」，后者靠回滚和自检。</div>
+      <div class="limit"><b>回滚需要 git。</b>没有的话流水照常跑，只是不能用回滚。</div>
+      <div class="limit"><b>快照不覆盖</b> node_modules、.venv、dist 等目录，回滚也不会动它们。</div>
+      <div class="limit"><b>回滚不改流程状态</b>，段位和返工次数不会倒退。</div>
+    </div>
+  </div>
+  <div class="foot">
+    <span><b>dsh-project-flow</b> ／ 建议与限制</span>
+    <span>05</span>
+  </div>
+</div>
+</body>
+</html>

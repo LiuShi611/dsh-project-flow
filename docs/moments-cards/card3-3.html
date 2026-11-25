@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style3.css">
+</head>
+<body>
+<div class="page">
+  <div class="top">
+    <div class="brand-tag"><span class="dot"></span>DSH PLUGIN</div>
+    <div class="pageno">03 / 03</div>
+  </div>
+  <div class="body">
+    <div class="kicker">03 + 04 + 05 · 怎么用 / 要点 / 产物</div>
+    <h2 class="title">怎么用，<span class="hl">记住这些</span></h2>
+    <div class="sect-note">开任务、看进度、续跑、回滚，都在一组命令里。</div>
+
+    <div class="cmds">
+      <div class="c"><code>/flow</code><span><b>开任务</b>，不带描述会先问你</span></div>
+      <div class="c"><code>/flow-status</code><span>看<b>真实进度</b>，一行显示段位与返工次数</span></div>
+      <div class="c"><code>/flow-resume</code><span>按磁盘产物重建上下文，<b>从中断那段接着跑</b></span></div>
+      <div class="c"><code>/flow-doctor</code><span><b>体检工作区</b>，只报告不动手；加 <code>fix</code> 才修</span></div>
+      <div class="c"><code>/flow-snapshots</code><span>列出可退快照，配合回滚，<b>默认干跑不改文件</b></span></div>
+      <div class="c"><code>/flow-models</code><span>查看各段模型，用 <code>/flow-set</code> 改，<b>改完立即生效</b></span></div>
+    </div>
+
+    <div class="sub-hd">模型分工</div>
+    <div class="kv-line">问意图<b>用聪明的</b> · 规划<b>中等</b> · 实施<b>便宜量大</b> · 自检<b>便宜</b> · 验收<b>主对话模型</b></div>
+    <div class="kv-tip">别拿最贵的模型跑自检——它最耗 token，做的是核对，不是创造。</div>
+
+    <div class="sub-hd">要知道的限制</div>
+    <div class="limits-compact">
+      <div>自愈只管「没跑完」，管不了「跑完但做错」</div>
+      <div>回滚需要 git；快照不覆盖 node_modules、.venv、dist 等目录</div>
+      <div>回滚不改流程状态，段位和返工次数不会倒退</div>
+    </div>
+
+    <div class="end-line">
+      产物在 <code>.project-flow/&lt;项目名&gt;/</code>，普通文件可整体搬走。<br>
+      非商业许可：仅限个人学习、研究与非营利项目使用。
+    </div>
+  </div>
+  <div class="foot">
+    <span><b>dsh-project-flow</b> ／ 用法 + 要点</span>
+    <span>03</span>
+  </div>
+</div>
+</body>
+</html>

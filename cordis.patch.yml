@@ -1,0 +1,20 @@
+- insert:
+    - id: project-flow
+      name: dsh-project-flow
+      config:
+        provider: spawn
+        intentModel: 'kimi-k3.1-pro'
+        planProvider: ''
+        planModel: deepseek-v4.1-flash
+        buildProvider: ''
+        buildModel: hy4flash
+        checkProvider: ''
+        checkModel: deepseek-v4.1-flash
+        maxRework: 2
+        maxConcurrentProjects: 2
+        maxStageRetries: 2
+        stageRetryDelayMs: 3000
+        stageTimeoutMs: 900000
+        staleLockMs: 1800000
+        snapshotEnabled: true
+        snapshotExcludes: ''

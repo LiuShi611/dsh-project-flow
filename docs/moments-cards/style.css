@@ -1,0 +1,313 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg1: #0a0e18;
+  --bg2: #121a2c;
+  --ink: #f3f7fc;
+  --sub: #a9bbd1;
+  --dim: #74869f;
+  --cyan: #3ad6c9;
+  --blue: #5aa9ff;
+  --amber: #f3b34a;
+  --red: #f4788f;
+  --panel: rgba(255, 255, 255, 0.045);
+  --line: rgba(255, 255, 255, 0.11);
+}
+
+html, body {
+  width: 1080px;
+  height: 1440px;
+  background: var(--bg1);
+}
+
+body {
+  font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  width: 1080px;
+  height: 1440px;
+  position: relative;
+  overflow: hidden;
+  padding: 78px 82px 66px;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(920px 520px at 88% -6%, rgba(58, 214, 201, 0.14), transparent 60%),
+    radial-gradient(820px 620px at -12% 112%, rgba(90, 169, 255, 0.13), transparent 60%),
+    linear-gradient(158deg, var(--bg1), var(--bg2));
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 28%, #000 72%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 28%, #000 72%, transparent);
+}
+
+/* 顶部 */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.brand-tag {
+  font-size: 23px;
+  letter-spacing: 2px;
+  color: var(--cyan);
+  font-weight: 700;
+}
+.brand-tag .dot {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--cyan);
+  margin-right: 13px;
+  box-shadow: 0 0 20px var(--cyan);
+  vertical-align: middle;
+}
+.pageno {
+  font-size: 22px;
+  color: var(--dim);
+  font-family: Consolas, "Courier New", monospace;
+  letter-spacing: 3px;
+}
+
+/* 主体 / 页脚 */
+.body {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 64px;
+}
+.foot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+  font-size: 21px;
+  color: var(--dim);
+}
+.foot b { color: var(--sub); font-weight: 600; }
+
+/* 标题 */
+.kicker {
+  font-size: 25px;
+  color: var(--amber);
+  letter-spacing: 4px;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+h1.title { font-size: 82px; line-height: 1.08; font-weight: 800; letter-spacing: -1px; }
+h2.title { font-size: 58px; line-height: 1.2; font-weight: 800; }
+.title .hl { color: var(--cyan); }
+.subtitle { font-size: 27px; color: var(--sub); margin-top: 20px; line-height: 1.5; }
+
+/* ===== 卡片 1 封面 ===== */
+.cover .big {
+  font-size: 96px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-top: 28px;
+}
+.cover .big .hl { color: var(--cyan); }
+.cover .lead {
+  font-size: 32px;
+  line-height: 1.65;
+  color: var(--sub);
+  margin-top: 44px;
+  max-width: 880px;
+}
+.cover .lead b { color: var(--ink); font-weight: 700; }
+.cover .chips { display: flex; gap: 16px; margin-top: 56px; }
+.cover .chip {
+  font-size: 23px;
+  color: var(--cyan);
+  border: 1px solid rgba(58, 214, 201, 0.4);
+  background: rgba(58, 214, 201, 0.08);
+  border-radius: 999px;
+  padding: 12px 26px;
+}
+.cover .author { margin-top: auto; font-size: 24px; color: var(--dim); }
+.cover .author b { color: var(--sub); }
+
+/* ===== 卡片 2 痛点与对策 ===== */
+.sect-note { font-size: 25px; color: var(--dim); margin-top: 18px; }
+.prob { margin-top: 34px; display: flex; flex-direction: column; gap: 26px; }
+.prob-row {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 26px 30px;
+  display: grid;
+  grid-template-columns: 1fr 70px 1fr;
+  align-items: center;
+  gap: 18px;
+}
+.prob-q .lb { font-size: 19px; color: var(--red); font-weight: 700; letter-spacing: 1px; }
+.prob-q .tx { font-size: 27px; color: var(--ink); margin-top: 8px; line-height: 1.45; }
+.arrow { font-size: 40px; color: var(--dim); text-align: center; }
+.prob-a .lb { font-size: 19px; color: var(--cyan); font-weight: 700; letter-spacing: 1px; }
+.prob-a .tx { font-size: 26px; color: var(--sub); margin-top: 8px; line-height: 1.45; }
+.prob-a .tx b { color: var(--ink); }
+
+/* ===== 卡片 3 五段流程 ===== */
+.flow-note { font-size: 24px; color: var(--dim); margin-top: 16px; }
+.flow { margin-top: 30px; position: relative; }
+.flow::before {
+  content: "";
+  position: absolute;
+  left: 33px;
+  top: 30px;
+  bottom: 30px;
+  width: 2px;
+  background: linear-gradient(var(--cyan), rgba(58, 214, 201, 0.15));
+}
+.step {
+  position: relative;
+  display: flex;
+  gap: 26px;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+.step:last-child { margin-bottom: 0; }
+.step-num {
+  flex: 0 0 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #142032;
+  border: 2px solid var(--cyan);
+  color: var(--cyan);
+  font-size: 30px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.step.main .step-num { border-color: var(--amber); color: var(--amber); }
+.step-box {
+  flex: 1;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px 26px;
+}
+.step-hd { display: flex; align-items: baseline; gap: 14px; }
+.step-name { font-size: 30px; font-weight: 700; }
+.step-tag {
+  font-size: 18px;
+  color: var(--cyan);
+  border: 1px solid rgba(58, 214, 201, 0.4);
+  border-radius: 6px;
+  padding: 2px 10px;
+}
+.step.main .step-tag { color: var(--amber); border-color: rgba(243, 179, 74, 0.45); }
+.step-desc { font-size: 23px; color: var(--sub); line-height: 1.5; margin-top: 8px; }
+
+/* ===== 卡片 4 命令速查 ===== */
+.cmd-list { margin-top: 30px; display: flex; flex-direction: column; gap: 18px; }
+.cmd {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--cyan);
+  border-radius: 12px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.cmd code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 25px;
+  color: var(--cyan);
+  flex: 0 0 330px;
+}
+.cmd .d { font-size: 24px; color: var(--sub); line-height: 1.4; }
+.cmd .d b { color: var(--ink); }
+
+/* ===== 卡片 5 模型分工与限制 ===== */
+.tbl-note { font-size: 23px; color: var(--dim); margin-top: 12px; }
+table { width: 100%; border-collapse: collapse; margin-top: 22px; font-size: 23px; }
+th {
+  text-align: left;
+  color: var(--cyan);
+  font-size: 19px;
+  letter-spacing: 2px;
+  padding: 12px 14px;
+  border-bottom: 2px solid rgba(58, 214, 201, 0.35);
+}
+td { padding: 12px 14px; border-bottom: 1px solid var(--line); color: var(--sub); }
+td:first-child { color: var(--ink); font-weight: 600; white-space: nowrap; }
+td:nth-child(2) { color: var(--amber); white-space: nowrap; }
+.tip {
+  margin-top: 20px;
+  font-size: 23px;
+  color: var(--ink);
+  background: rgba(243, 179, 74, 0.08);
+  border: 1px solid rgba(243, 179, 74, 0.3);
+  border-radius: 12px;
+  padding: 14px 20px;
+}
+.limit-hd { font-size: 26px; font-weight: 700; color: var(--ink); margin-top: 30px; margin-bottom: 14px; }
+.limits { display: flex; flex-direction: column; gap: 10px; }
+.limit { font-size: 22px; color: var(--sub); line-height: 1.45; padding-left: 24px; position: relative; }
+.limit::before { content: "•"; position: absolute; left: 4px; color: var(--red); font-size: 26px; }
+.limit b { color: var(--ink); }
+
+/* ===== 卡片 6 产物与许可 ===== */
+.dir {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 24px;
+  color: var(--cyan);
+  background: rgba(58, 214, 201, 0.08);
+  border: 1px solid rgba(58, 214, 201, 0.3);
+  border-radius: 10px;
+  padding: 14px 22px;
+  margin-top: 24px;
+  display: inline-block;
+}
+.file-grid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 30px;
+}
+.file {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 21px;
+  color: var(--ink);
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.file .d { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; color: var(--dim); font-size: 20px; }
+.end-note { margin-top: auto; font-size: 23px; color: var(--sub); line-height: 1.6; }
+.end-note b { color: var(--cyan); }
+.license {
+  margin-top: 22px;
+  font-size: 20px;
+  color: var(--dim);
+  line-height: 1.55;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+.license b { color: var(--amber); }

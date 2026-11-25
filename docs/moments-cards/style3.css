@@ -1,0 +1,142 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg1: #0a0e18;
+  --bg2: #121a2c;
+  --ink: #f3f7fc;
+  --sub: #a9bbd1;
+  --dim: #74869f;
+  --cyan: #3ad6c9;
+  --amber: #f3b34a;
+  --red: #f4788f;
+  --panel: rgba(255, 255, 255, 0.045);
+  --line: rgba(255, 255, 255, 0.11);
+}
+
+html, body { width: 1080px; height: 1440px; background: var(--bg1); }
+body {
+  font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  width: 1080px;
+  height: 1440px;
+  position: relative;
+  overflow: hidden;
+  padding: 78px 82px 66px;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(920px 520px at 88% -6%, rgba(58, 214, 201, 0.14), transparent 60%),
+    radial-gradient(820px 620px at -12% 112%, rgba(90, 169, 255, 0.13), transparent 60%),
+    linear-gradient(158deg, var(--bg1), var(--bg2));
+}
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 28%, #000 72%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 28%, #000 72%, transparent);
+}
+
+.top { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+.brand-tag { font-size: 23px; letter-spacing: 2px; color: var(--cyan); font-weight: 700; }
+.brand-tag .dot {
+  display: inline-block; width: 11px; height: 11px; border-radius: 50%;
+  background: var(--cyan); margin-right: 13px; box-shadow: 0 0 20px var(--cyan); vertical-align: middle;
+}
+.pageno { font-size: 22px; color: var(--dim); font-family: Consolas, monospace; letter-spacing: 3px; }
+
+.body { flex: 1; position: relative; z-index: 1; display: flex; flex-direction: column; margin-top: 60px; }
+.foot {
+  position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center;
+  padding-top: 28px; border-top: 1px solid var(--line); font-size: 21px; color: var(--dim);
+}
+.foot b { color: var(--sub); font-weight: 600; }
+
+.kicker { font-size: 25px; color: var(--amber); letter-spacing: 3px; font-weight: 700; margin-bottom: 20px; }
+h2.title { font-size: 56px; line-height: 1.2; font-weight: 800; }
+.title .hl { color: var(--cyan); }
+.sect-note { font-size: 24px; color: var(--dim); margin-top: 16px; }
+.sub-hd {
+  font-size: 25px; font-weight: 700; color: var(--ink);
+  margin-top: 32px; margin-bottom: 14px; border-left: 4px solid var(--cyan); padding-left: 14px;
+}
+
+/* ===== 卡片 1 封面 ===== */
+.cover .big { font-size: 96px; font-weight: 800; line-height: 1.05; letter-spacing: -2px; margin-top: 28px; }
+.cover .big .hl { color: var(--cyan); }
+.cover .lead { font-size: 32px; line-height: 1.65; color: var(--sub); margin-top: 44px; max-width: 880px; }
+.cover .lead b { color: var(--ink); font-weight: 700; }
+.cover .chips { display: flex; gap: 16px; margin-top: 52px; }
+.cover .chip {
+  font-size: 23px; color: var(--cyan); border: 1px solid rgba(58, 214, 201, 0.4);
+  background: rgba(58, 214, 201, 0.08); border-radius: 999px; padding: 12px 26px;
+}
+.cover .author { margin-top: auto; font-size: 24px; color: var(--dim); }
+.cover .author b { color: var(--sub); }
+
+/* ===== 卡片 2 痛点 + 五段流程 ===== */
+.mini-list { margin-top: 26px; display: flex; flex-direction: column; gap: 14px; }
+.mini-row {
+  display: grid; grid-template-columns: 78px 1fr 36px 1.45fr; align-items: center; gap: 12px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 15px 20px;
+}
+.tag-q { font-size: 17px; color: var(--red); font-weight: 700; }
+.qtext { font-size: 20px; color: var(--ink); }
+.arw { font-size: 26px; color: var(--dim); text-align: center; }
+.atext { font-size: 20px; color: var(--sub); }
+.atext b { color: var(--ink); }
+
+.flow-compact { display: flex; flex-direction: column; gap: 10px; }
+.fstep {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 11px 18px;
+}
+.fn {
+  width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--cyan); color: var(--cyan);
+  font-weight: 800; font-size: 19px; display: flex; align-items: center; justify-content: center; flex: 0 0 38px;
+}
+.fstep.m .fn { border-color: var(--amber); color: var(--amber); }
+.fname { font-weight: 700; color: var(--ink); font-size: 22px; flex: 0 0 80px; }
+.ftag {
+  font-size: 15px; color: var(--cyan); border: 1px solid rgba(58, 214, 201, 0.4);
+  border-radius: 5px; padding: 2px 8px; flex: 0 0 78px; text-align: center; white-space: nowrap;
+}
+.fstep.m .ftag { color: var(--amber); border-color: rgba(243, 179, 74, 0.45); }
+.fdesc { color: var(--sub); font-size: 21px; }
+
+/* ===== 卡片 3 用法 + 要点 ===== */
+.cmds { margin-top: 24px; display: flex; flex-direction: column; gap: 9px; }
+.c {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--cyan);
+  border-radius: 8px; padding: 10px 16px;
+}
+.c code { font-family: Consolas, monospace; font-size: 21px; color: var(--cyan); flex: 0 0 282px; }
+.c span { font-size: 20px; color: var(--sub); }
+.c span b { color: var(--ink); }
+
+.kv-line { font-size: 20px; color: var(--sub); line-height: 1.6; }
+.kv-line b { color: var(--amber); }
+.kv-tip {
+  margin-top: 8px; font-size: 19px; color: var(--ink);
+  background: rgba(243, 179, 74, 0.08); border: 1px solid rgba(243, 179, 74, 0.3);
+  border-radius: 8px; padding: 10px 14px;
+}
+.limits-compact { display: flex; flex-direction: column; gap: 6px; }
+.limits-compact div { font-size: 20px; color: var(--sub); padding-left: 16px; position: relative; }
+.limits-compact div::before { content: "•"; position: absolute; left: 0; color: var(--red); font-size: 22px; }
+.end-line {
+  margin-top: auto; font-size: 19px; color: var(--dim); line-height: 1.65;
+  border-top: 1px solid var(--line); padding-top: 16px;
+}
+.end-line code { font-family: Consolas, monospace; color: var(--cyan); }
