@@ -1,4 +1,4 @@
-# 把源码目录同步到 profile 的 node_modules 副本，然后热重载插件。
+﻿# 把源码目录同步到 profile 的 node_modules 副本，然后热重载插件。
 #
 # 这个插件是以 `file:D:\dsh-plugins\dsh-project-flow` 登记进 profile 的，但 pnpm
 # 落地时把文件复制了一份到 profiles\<profile>\node_modules\dsh-project-flow，
